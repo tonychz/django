@@ -31,7 +31,7 @@ SECRET_KEY = env('HOTZONE_SECRET_KEY')
 DEBUG = False
 
 ALLOWED_HOSTS = [
-    'https://safe-peak-80741.herokuapp.com/', 'localhost', '127.0.0.1'
+    'safe-peak-80741.herokuapp.com/', 'localhost', '127.0.0.1'
 ]
 
 
