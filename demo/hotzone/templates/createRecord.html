@@ -1,15 +1,5 @@
 <h1> Create New Case Record</h1>
 <input class="btn btn-success" type="button" value="Return to Home" onclick="location.href='/hotzone'" />
-<form action ="/createRecord" method="post">
-	{% csrf_token %}
-	{{ form.as_p }}
-	
-	<p><input type="submit" value="Submit"></p>
-</form>
-
-<h1></h1>
-<h1></h1>
-<h1></h1>
 
 <form action="/createRecord" method='get'>
 	{% csrf_token %}
@@ -20,11 +10,7 @@
 	<p><input type="submit" value="Search"></p>
 </form>
 
-{% if alert_flag %}
-    <script>alert("Geodata store search query failed. Please try again.")</script>  
-{% endif %}
-
-<p>Location Search Result: </p>
+<title>Location Search Result: </title>
 	<ul>
 		<p> name (EN):  {{ nameEN }}</p>
 		<p> address: (EN): {{ addressEN }}</p>
@@ -32,6 +18,27 @@
 		<p>y coordinate (HK1980 Grid Coordinates): {{ y_coor }}</p>
 	</ul>
 </p>
+<p>
+-------------------------------------------------------------
+</p>
+<h3>Case Record Form</h3>
+<form action ="/createRecord" method="post">
+	{% csrf_token %}
+	{{ form.as_p }}
+	<p><input type="submit" value="Submit"></p>
+</form>
+
+<h1></h1>
+<h1></h1>
+<h1></h1>
+
+
+
+{% if alert_flag %}
+    <script>alert("Geodata store search query failed. Please try again.")</script>  
+{% endif %}
+
+
 
 
 

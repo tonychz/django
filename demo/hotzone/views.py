@@ -82,7 +82,7 @@ def createRecordView(request):
         
         form = recordForm()
         location = request.GET.get('search_location')
-        form = requests.post("http://127.0.0.1:8000/createRecord")
+        #form = requests.post("/createRecord")
         #return HttpResponse(data)
         error_alert = False
         if location!=None and location!='':
