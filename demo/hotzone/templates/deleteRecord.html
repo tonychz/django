@@ -1,0 +1,12 @@
+<h1>Delete Case Record</h1>
+<input class="btn btn-success" type="button" value="Return to Home" onclick="location.href='/hotzone'" />
+
+{% if alert_flag %}
+    <script>alert("Delete record failed. Might be incorrect case number input. Please try again.")</script>  
+{% endif %}
+
+<form action ="/deleteRecord" method="post">
+    {% csrf_token %}
+	<input type="text" name="delete" value="{{ delete }}">
+	<p><input type="submit" value="Submit"></p>
+</form>

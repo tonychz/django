@@ -1,0 +1,3 @@
+pipenv shell
+cd demo
+python manage.py runserver

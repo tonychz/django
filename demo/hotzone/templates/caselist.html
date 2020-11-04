@@ -1,0 +1,29 @@
+<h1>Showing all Case Record: </h1>
+
+<input class="btn btn-success" type="button" value="Return to Home" onclick="location.href='/hotzone'" />
+
+<ul> 
+{% for case in case_list %}
+<h3>Case no. {{case.caseNumber}} details:</h3>
+    <li>case number: {{case.caseNumber}}</li>
+    <li>patient name: {{ case.patient.name }}</li>
+    <li>infecting virus: {{case.infectingVirus}} </li>
+    <li>date: {{case.date}} </li>
+    <li>is local case?: {{case.isLocal}} </li>
+    <li>location: {{case.location}} </li>
+
+<p>Location Details:</p>
+    <li>name: {{case.location.name}} </li>
+    <li>case number: {{case..location.address}} </li>
+    <li>x coordinates (HK1980 grid coord.): {{case.location.x_coordinate}} </li>
+    <li>y coordinates (HK1980 grid coord.): {{case.location.y_coordinate}} </li>
+    <li>starting date: {{case.location.startingDate}} </li>
+    <li>ending date: {{case.location.endingDate}} </li>
+
+<p>Patient Details:</p>
+    <li>identity document number: {{case.patient.identityDocumentNumber}} </li>
+    <li>date of birth: {{case.patient.dateOfBirth}} </li>
+    <p>     ----------------    </p>
+{% endfor %}
+
+</ul>

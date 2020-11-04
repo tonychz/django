@@ -1,0 +1,73 @@
+
+
+
+<form action ="/createRecord" method="post" novalidate>
+	{% csrf_token %}
+	<p> Create New Record </p>
+	<h3>Case details</h3>
+
+	<label for="case_number_field">case_number_field: </label>
+	<input id="name_field" type="text" name="name_field" value="{{ name_field }}">	
+
+	<label for="virus_field">virus_field: </label>
+	<input id="virus_field" type="text" name="virus_field" value="{{ virus_field }}">
+	<p></p>
+	<label for="date_field">date_field: </label>
+	<input id="date_field" type="text" name="date_field" value="{{ date_field }}">
+
+	<label for="location_field">location_field: </label>
+	<input id="location_field" type="text" name="location_field" value="{{ location_field }}">
+
+	<label for="is_local">is_local: </label>
+	<input type="checkbox" name="is_local" value="{{ is_local }}" required/> Option 1<br>
+	<input type="checkbox" value="option1" oninvalid="this.setCustomValidity()">
+	
+	
+
+	<p></p>
+
+	<h3>Patient details</h3>
+	<label for="name">name: </label>
+	<input id="name" type="text" name="name" value="{{ name }}">
+
+	<label for="idn">identity document number: </label>
+	<input id="idn" type="text" name="idn" value="{{ idn }}">
+
+	<label for="birth">date of birth: </label>
+	<input id="birth" type="text" name="birth" value="{{ birth }}">
+
+
+	<p></p>
+
+	<h3>Location details</h3>
+	<label for="loc">name of location visited: </label>
+	<input id="loc" type="text" name="loc" value="{{ loc }}">
+
+	<label for="address">address: </label>
+	<input id="address" type="text" name="address" value="{{ address }}">
+
+	<label for="x">x coordinate: </label>
+	<input id="x" type="text" name="x" value="{{ x }}">
+
+	<label for="y">y coordinate: </label>
+	<input id="y" type="text" name="y" value="{{ y }}">
+
+	<label for="starting">first visit date: </label>
+	<input id="starting" type="text" name="starting" value="{{ starting }}">
+
+	<label for="ending">last visit date: </label>
+	<input id="ending" type="text" name="ending" value="{{ ending }}">
+
+	<input type = "submit" value = "Submit"> 
+
+
+
+	<ul>
+		{% block content %}
+		<h3>geodata</h3>
+		<p>address: <strong>{{ addressZH }}</strong>  <strong>{{ nameZH }}</strong> 
+		<strong>{{ x }}</strong>  <strong>{{ y }}</strong>  <strong>{{ nameEN }}</strong>  <strong>{{ addressEN }}</strong></p>
+		{% endblock %}
+	</ul>
+</form>
+
