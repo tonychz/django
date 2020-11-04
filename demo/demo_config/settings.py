@@ -89,8 +89,18 @@ WSGI_APPLICATION = 'demo_config.wsgi.application'
 #    }
 #}
 
+#DATABASES = {
+    #'default': env.dj_db_url('DATABASE_URL')
+#}
 DATABASES = {
-    'default': env.dj_db_url('DATABASE_URL')
+'default': {
+'ENGINE': 'django.db.backends.postgresql',
+'NAME': 'hotzone',
+'USER': 'adminse',
+'PASSWORD': 'comp3297',
+'HOST': 'localhost',
+'PORT': '5432',
+}
 }
 
 
