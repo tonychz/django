@@ -96,7 +96,7 @@ DATABASES = {
     #'ENGINE': 'django.db.backends.postgresql',
     #'NAME': 'hotzone',
     #'USER': 'adminse',
-    #PASSWORD': 'comp3297',
+    #'PASSWORD': 'comp3297',
     #'HOST': 'localhost',
     #'PORT': '5432',
     #}

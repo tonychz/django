@@ -27,9 +27,10 @@ def hotzoneView(request):
 def createRecordFinishedView(request):
     #return HttpResponse('code thate does somehng')
     return render(request, "createRecordFinished.html")
-    
-class findLocationView(TemplateView):
-    template_name = 'createRecord.html'
+
+def deleteRecordFinishedView(request):
+    #return HttpResponse('code thate does somehng')
+    return render(request, "deleteRecordFinished.html")
 
 def deleteRecordView(request):
     error_alert = False
@@ -38,9 +39,10 @@ def deleteRecordView(request):
         if Location.objects.filter(name=delete).exists():
             delete_location = Location.objects.get(name=delete)
             delete_location.delete()
+            return HttpResponseRedirect("/deleteRecordFinished")
         else:
             error_alert = True
-            pass
+            render(request, "deleteRecord.html",{'alert_flag': error_alert})
     return render(request, "deleteRecord.html",{'alert_flag': error_alert})
 
 
