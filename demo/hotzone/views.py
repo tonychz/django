@@ -9,9 +9,9 @@ from django.contrib import messages
 from django.db import models
 
 class recordView(ListView):
-    model = Case
-    template_name="caselist.html"
-    list_name="caselist.html"
+    model = Location
+    template_name="locationList.html"
+    list_name="locationList.html"
 
     def get_context_data (self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -35,9 +35,9 @@ def deleteRecordView(request):
     error_alert = False
     if request.method=='POST':
         delete = request.POST.get('delete')
-        if Case.objects.filter(caseNumber=delete).exists():
-            delete_case = Case.objects.get(caseNumber=delete)
-            delete_case.delete()
+        if Location.objects.filter(name=delete).exists():
+            delete_location = Case.objects.get(name=delete)
+            delete_location.delete()
         else:
             error_alert = True
             pass
@@ -52,16 +52,6 @@ def createRecordView(request):
         if form.is_valid():
             #form.save()
 
-            case_number = form.cleaned_data['case_number']
-            name = form.cleaned_data['patient_name']
-            virus = form.cleaned_data['infecting_virus']
-            date = form.cleaned_data['date_of_confirm']
-            local = form.cleaned_data['local_or_imported']
-
-            idn = form.cleaned_data['identity_document_number']
-            birth = form.cleaned_data['date_of_birth']
-
-
             loc = form.cleaned_data['location_visited']
             address = form.cleaned_data['address']
             x = form.cleaned_data['x_coordinate']
@@ -69,11 +59,8 @@ def createRecordView(request):
             starting = form.cleaned_data['starting_date_of_patient_present_on_the_location']
             ending = form.cleaned_data['ending_date_of_patient_present_on_the_location']
 
-            p = Patient.objects.create(name=name, identityDocumentNumber= idn, dateOfBirth=birth)
             l = Location.objects.create(name = loc, address = address, x_coordinate = x, y_coordinate = y, startingDate=starting,endingDate=ending)
-            c = Case.objects.create(caseNumber=case_number, patient=p, infectingVirus=virus, date=date, isLocal=local)
-            c.location.add(l)
-            c.save()
+            l.save()
             #instance=form.save(commit=False)
             #instance.save()
             return HttpResponseRedirect("/createRecordFinished")

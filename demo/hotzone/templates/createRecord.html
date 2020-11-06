@@ -1,19 +1,19 @@
-<h1> Create New Case Record</h1>
+<h1> Create New Location Record</h1>
 <input class="btn btn-success" type="button" value="Return to Home" onclick="location.href='/hotzone'" />
 
 <form action="/createRecord" method='get'>
 	{% csrf_token %}
 	<h3>Geodata Location Search</h3>
 	
-	<label for="fname">Enter location:</label><br>
-	<input type="text" name="search_location" value="{{ search_location }}">
+	<label for="fname">Please enter search location here:</label><br>
+	<input type="text" name="search_location" value="{{ search_location }}" >
 	<p><input type="submit" value="Search"></p>
 </form>
 
 <title>Location Search Result: </title>
 	<ul>
-		<p> name (EN):  {{ nameEN }}</p>
-		<p> address: (EN): {{ addressEN }}</p>
+		<p>name (EN):  {{ nameEN }}</p>
+		<p>address: (EN): {{ addressEN }}</p>
 		<p>x coordinate (HK1980 Grid Coordinates): {{ x_coor }}</p>
 		<p>y coordinate (HK1980 Grid Coordinates): {{ y_coor }}</p>
 	</ul>
@@ -21,11 +21,11 @@
 <p>
 -------------------------------------------------------------
 </p>
-<h3>Case Record Form</h3>
+<h3>Location Record Form</h3>
 <form action ="/createRecord" method="post">
 	{% csrf_token %}
 	{{ form.as_p }}
-	<p><input type="submit" value="Submit"></p>
+	<p><input type="submit" value="Submit" onclick="return confirm('Confirm to submit the form?');"></p>
 </form>
 
 <h1></h1>

@@ -1,0 +1,16 @@
+<h1>Showing all Location Record: </h1>
+
+<input class="btn btn-success" type="button" value="Return to Home" onclick="location.href='/hotzone'" />
+
+<ul> 
+{% for location in location_list %}
+<h3>{{location.name}}:</h3>
+    <li>location name:      {{location.name}} </li>
+    <li>location address:   {{location.address}} </li>
+    <li>x coordinate (HK1980 grid coord.): {{location.x_coordinate}} </li>
+    <li>y coordinate (HK1980 grid coord.): {{location.y_coordinate}} </li>
+    <li>starting date:  {{location.startingDate}} </li>
+    <li>ending date:    {{location.endingDate}} </li>
+<p>      --------------------------------      </p>
+{% endfor %}
+</ul>

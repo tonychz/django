@@ -7,7 +7,7 @@ urlpatterns = [
     path('hotzone', hotzoneView, name='home'),
     path('createRecord', createRecordView, name='createRecord'),
     path('createRecordFinished', createRecordFinishedView, name='createRecordFinished'),
-    path('caselist', recordView.as_view(), name='caselist'),
+    path('locationList', recordView.as_view(), name='locationList'),
     path('deleteRecord', deleteRecordView, name='deleteRecord')
     #path('results', resultsView, name='results')
 ]

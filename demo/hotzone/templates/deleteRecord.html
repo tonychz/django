@@ -1,12 +1,16 @@
-<h1>Delete Case Record</h1>
-<input class="btn btn-success" type="button" value="Return to Home" onclick="location.href='/hotzone'" />
+<h1>Delete Location Record</h1>
+
+
+<input class="btn btn-success" type="button" value="Return to Home" onclick="location.href='/hotzone'"/>
 
 {% if alert_flag %}
-    <script>alert("Delete record failed. Might be incorrect case number input. Please try again.")</script>  
+    <script>alert("Delete location record failed. Might be incorrect location name input. Please try again.")</script>  
 {% endif %}
 
 <form action ="/deleteRecord" method="post">
     {% csrf_token %}
+    <p>For deleting location, please enter the location name below.</p>
+    <label for="fname">Location Name:</label><br>
 	<input type="text" name="delete" value="{{ delete }}">
-	<p><input type="submit" value="Submit"></p>
+	<p><input type="submit" value="Submit"  onclick="return confirm('Confirm to delete the location?');"></p>
 </form>
