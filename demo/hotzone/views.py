@@ -36,7 +36,7 @@ def deleteRecordView(request):
     if request.method=='POST':
         delete = request.POST.get('delete')
         if Location.objects.filter(name=delete).exists():
-            delete_location = Case.objects.get(name=delete)
+            delete_location = Location.objects.get(name=delete)
             delete_location.delete()
         else:
             error_alert = True
